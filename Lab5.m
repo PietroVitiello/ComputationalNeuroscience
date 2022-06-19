@@ -2,9 +2,11 @@
 n_neurons = 50;
 theta0 = 0;
 neur_angles = -pi/2 : pi/(n_neurons-1) : pi/2;
+c = 3;
+epsi = 0.1;
 
 theta0 = ones(size(neur_angles))*theta0;
-Is = I_ringModel(theta0, neur_angles, 3, 0.1);
+Is = I_ringModel(theta0, neur_angles, c, epsi);
 
 figure()
 plot(neur_angles, Is)
@@ -55,9 +57,9 @@ J = weights_ringModel(neur_angles, 86, 112);
 image(J)
 
 %% rate based model when input is only thalamus
-c = [1.2 1.5 4];
+c = 4 %[1.2 1.5 4];
 for i = 1:length(c)
-    out = ringModel(0, 0, 50, 30, 0.1, c(i));
+    out = ringModel(0, 0, 50, 40, 0.1, c(i));
 end
 
 %% Changing the stimulus

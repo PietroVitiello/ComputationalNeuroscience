@@ -25,9 +25,6 @@ function v_next = IntegrateFire(v, time_step, I, v_threshold, tao, R)
         v_threshold = 10;
     end
     
-    tao = tao / 1000;
-    time_step = time_step / 1000;
-    
     % Euler method to model neuron dynamics
     v_next = eulerMethod(v, time_step, R*I, tao);
     
